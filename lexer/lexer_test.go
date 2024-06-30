@@ -1,8 +1,9 @@
 package lexer
 
 import (
-	"github/Stupnikjs/interpreter/token"
 	"testing"
+
+	"github.com/Stupnikjs/interpreter/token"
 )
 
 func TestNextToken(t *testing.T) {
