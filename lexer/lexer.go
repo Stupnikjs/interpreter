@@ -116,6 +116,11 @@ func newToken(tokenType token.TokenType, ch byte) token.Token {
 	return token.Token{Type: tokenType, Literal: string(ch)}
 }
 
+/*
+* Avance le curseur a chaques lettres et retourne la slice de l'input correspondante
+*
+*
+ */
 func (l *Lexer) readIdentifier() string {
 	position := l.position
 	for isLetter(l.ch) {

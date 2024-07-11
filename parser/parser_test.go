@@ -10,7 +10,7 @@ import (
 func TestLetStatements(t *testing.T) {
 	input := `
 let x = 5;
-let y = 10;
+let michel = 10;
 let foobar = 838383;
 `
 	l := lexer.New(input)
@@ -29,7 +29,7 @@ let foobar = 838383;
 		expectedIdentifier string
 	}{
 		{"x"},
-		{"y"},
+		{"michel"},
 		{"foobar"},
 	}
 	for i, tt := range tests {

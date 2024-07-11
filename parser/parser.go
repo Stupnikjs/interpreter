@@ -10,8 +10,14 @@ import (
 )
 
 /*
-* le parser itere sur le nexToken du lexer
+* Le parser itere sur le nexToken du lexer
 *
+* En fonction du token parseStatement va appeler des fonctions spécifiques comme parseLetStatement()
+* si le tokenType est LET
+*
+* ast.LetStatement est initialisé avec le Token
+*
+* p.expectPeek() appelle le nextToken() si le token est type attendu
 *
 *
 *
