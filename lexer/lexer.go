@@ -4,6 +4,21 @@ import (
 	"github.com/Stupnikjs/interpreter/token"
 )
 
+/*
+* Le lexer est associé a un input
+*
+* Il est initialisé grace a readChar qui passe readPosition a 1
+*
+* La fonction nextToken va lire le l.ch et retourner le token correspondant
+*
+* Si c'est un identifiant va iterer sur les prochains caractères pour l'extraire grace a
+* readIdentifier
+*
+*
+*
+*
+ */
+
 type Lexer struct {
 	input        string
 	position     int

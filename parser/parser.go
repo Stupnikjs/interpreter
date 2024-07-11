@@ -2,11 +2,20 @@ package parser
 
 import (
 	"fmt"
+	"testing"
 
 	"github.com/Stupnikjs/interpreter/ast"
 	"github.com/Stupnikjs/interpreter/lexer"
 	"github.com/Stupnikjs/interpreter/token"
 )
+
+/*
+* le parser itere sur le nexToken du lexer
+*
+*
+*
+*
+ */
 
 type Parser struct {
 	l         *lexer.Lexer
@@ -78,6 +87,7 @@ func (p *Parser) expectPeek(t token.TokenType) bool {
 		p.nextToken()
 		return true
 	} else {
+		p.peekError(t)
 		return false
 	}
 }
@@ -90,4 +100,16 @@ func (p *Parser) peekError(t token.TokenType) {
 		t, p.peekToken.Type)
 	p.errors = append(p.errors, msg)
 
+}
+
+func checkParserErrors(t *testing.T, p *Parser) {
+	errors := p.Errors()
+	if len(errors) == 0 {
+		return
+	}
+	t.Errorf("parser has %d errors", len(errors))
+	for _, msg := range errors {
+		t.Errorf("parser error: %q", msg)
+	}
+	t.FailNow()
 }
